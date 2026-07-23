@@ -22,7 +22,7 @@ from batch_utils import (
 SCRIPT_ROOT = os.path.dirname(os.path.abspath(__file__))
 TOTAL_CONFIG_PATH = os.path.join(SCRIPT_ROOT, "total_config.yaml")
 # 默认从 SingleRunInputScript 读取 demo.py/utility.py/nep.txt
-DEMO_SRC_DIR = os.path.join(SCRIPT_ROOT, "SingleRunInputScript")
+DEMO_SRC_DIR = SCRIPT_ROOT
 
 
 def resolve_tasks_root(total_config):
