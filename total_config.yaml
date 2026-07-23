@@ -1,0 +1,55 @@
+# 迭代停止的步数
+Dirsstopsteps: 200
+
+# 批量任务输出目录（相对本目录或绝对路径）
+output_dir: "batch_output3"
+
+# 衬底温度 (K)
+substrate_temperature: [200, 400, 600, 800, 1000, 1200]
+
+#------------------入射粒子参数区（腔体方案）------------------
+inject_temperature: 2000          # velocity_magnitude 未设时的回退
+inject_xy_spacing: 8.0
+injection_count: null             # null 时按网格满铺；设整数则固定每轮粒子数
+z_spread: 50.0                    # 腔体 Z 均匀分布宽度（Å）
+local_surface_radius: 5.0
+surface_height_offset: 8.0
+cluster_cutoff: 2.8
+remove_incident_particles: true
+
+# 速度高斯：θ ~ |Normal(0, σ_θ)|，仅影响速度方向
+velocity_magnitude: 0.01          # Å/fs；与 inject_temperature 同时设时优先此项
+theta_sigma_deg: 5.0
+
+enable_d3: true
+time_step: 1
+run_steps: 2000
+
+# 衬底 xyz 所在目录（相对本目录或绝对路径）
+initial_xyz_dir: "Substrate"
+# 首轮衬底 XY 复制倍数：2 表示 2×2；仅第一次迭代生效，后续基于 dump.xyz 沉积
+substrate_replicate: 2
+# 该目录下的初始衬底文件名（笛卡尔积变参之一）
+initial_xyz: ["100.xyz", "110.xyz", "111.xyz"]
+
+box_z: 200
+
+gpu_list: [0, 1, 2, 3, 4, 5, 6, 7]
+gpumd_command: "gpumd-4.7"
+
+inject_species_weights:
+  - name: "Ge0_Si100"
+    Ge: 0.0
+    Si: 1.0
+  - name: "Ge25_Si75"
+    Ge: 0.25
+    Si: 0.75
+  - name: "Ge50_Si50"
+    Ge: 0.5
+    Si: 0.5
+  - name: "Ge75_Si25"
+    Ge: 0.75
+    Si: 0.25
+  - name: "Ge100_Si0"
+    Ge: 1.0
+    Si: 0.0

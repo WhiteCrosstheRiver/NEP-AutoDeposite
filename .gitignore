@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# C extension build
+build/
+*.so
+*.cpython-*.so
+fast_xyz/
+
+# Batch output
+batch_output*/
+batch_results/
+.batch_done
+batch_scheduler_timing.log
+
+# Runtime artifacts
+nohup*.log
+*.out
+
+# Simulation outputs (anywhere)
+dump.xyz
+thermo.out
+model.xyz
+run.in
+neighbor.out
+
+# IDE / OS
+.vscode/ .idea/ .DS_Store
+*.swp *.swo *~
